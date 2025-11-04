@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Header logoSrc={logoUrl} />
-      <main className="pt-16 md:pt-20">
+      <main className="pt-14">
         <HeroSection backgroundImage={heroImage} />
         <AboutSection images={aboutImages} />
         <AdultAdoptionCampaign />
