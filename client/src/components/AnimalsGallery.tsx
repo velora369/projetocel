@@ -62,67 +62,71 @@ export default function AnimalsGallery({ animals }: AnimalsGalleryProps) {
             Conheça Nossos <span className="gradient-text">Animais</span>
           </h3>
           
-          <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl blur-xl opacity-20 transition-opacity duration-500" />
-            <div className="relative overflow-hidden rounded-xl px-12 sm:px-16" ref={emblaRef}>
-              <div className="flex">
-                {animals.map((animal) => (
-                  <div
-                    key={animal.id}
-                    className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-3"
-                    data-testid={`carousel-slide-${animal.id}`}
-                  >
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <div 
-                          className="relative group/slide overflow-hidden rounded-lg cursor-pointer"
-                          onClick={() => setSelectedImage(animal.image)}
-                        >
-                          <div className="aspect-[4/3] overflow-hidden">
+          <div>
+            <div className="relative mb-6">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl blur-xl opacity-20 transition-opacity duration-500" />
+              <div className="relative overflow-hidden rounded-xl" ref={emblaRef}>
+                <div className="flex">
+                  {animals.map((animal) => (
+                    <div
+                      key={animal.id}
+                      className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0 px-3"
+                      data-testid={`carousel-slide-${animal.id}`}
+                    >
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <div 
+                            className="relative group/slide overflow-hidden rounded-lg cursor-pointer"
+                            onClick={() => setSelectedImage(animal.image)}
+                          >
+                            <div className="aspect-[4/3] overflow-hidden">
+                              <img
+                                src={animal.image}
+                                alt="Animal disponível para adoção"
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
+                              />
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover/slide:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                              <p className="text-white font-semibold text-lg">Clique para ampliar</p>
+                            </div>
+                          </div>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-0">
+                          <div className="relative">
                             <img
                               src={animal.image}
-                              alt="Animal disponível para adoção"
-                              className="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
+                              alt="Animal disponível para adoção - Imagem ampliada"
+                              className="w-full h-auto max-h-[90vh] object-contain rounded-lg"
                             />
                           </div>
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover/slide:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <p className="text-white font-semibold text-lg">Clique para ampliar</p>
-                          </div>
-                        </div>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-transparent border-0">
-                        <div className="relative">
-                          <img
-                            src={animal.image}
-                            alt="Animal disponível para adoção - Imagem ampliada"
-                            className="w-full h-auto max-h-[90vh] object-contain rounded-lg"
-                          />
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                  </div>
-                ))}
+                        </DialogContent>
+                      </Dialog>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             
-            <Button
-              size="icon"
-              variant="outline"
-              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 shadow-lg hover-lift z-10 h-10 w-10 sm:h-12 sm:w-12"
-              onClick={scrollPrev}
-              data-testid="button-carousel-prev"
-            >
-              <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-            </Button>
-            <Button
-              size="icon"
-              variant="outline"
-              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 shadow-lg hover-lift z-10 h-10 w-10 sm:h-12 sm:w-12"
-              onClick={scrollNext}
-              data-testid="button-carousel-next"
-            >
-              <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-            </Button>
+            <div className="flex items-center justify-center gap-3">
+              <Button
+                size="icon"
+                variant="outline"
+                className="bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 shadow-lg hover-lift h-10 w-10 sm:h-12 sm:w-12"
+                onClick={scrollPrev}
+                data-testid="button-carousel-prev"
+              >
+                <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+              </Button>
+              <Button
+                size="icon"
+                variant="outline"
+                className="bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 shadow-lg hover-lift h-10 w-10 sm:h-12 sm:w-12"
+                onClick={scrollNext}
+                data-testid="button-carousel-next"
+              >
+                <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+              </Button>
+            </div>
           </div>
         </div>
       </div>
