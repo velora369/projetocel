@@ -107,7 +107,7 @@ export default function Footer({ logoSrc }: FooterProps) {
 
         <div className="border-t pt-8 text-center">
           <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-            Feito com <Heart className="h-4 w-4 text-primary fill-primary animate-pulse" /> pela Marina Esposito © {new Date().getFullYear()}
+            Feito com <Heart className="h-4 w-4 text-primary fill-primary animate-pulse" /> por Marina Esposito © {new Date().getFullYear()}
           </p>
         </div>
       </div>

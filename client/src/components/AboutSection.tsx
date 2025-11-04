@@ -8,7 +8,7 @@ interface AboutSectionProps {
 export default function AboutSection({ images }: AboutSectionProps) {
   const stats = [
     { icon: Home, value: "300", label: "Animais Sob Cuidado" },
-    { icon: Calendar, value: "21", label: "Anos de História" },
+    { icon: Calendar, value: "22", label: "Anos de História" },
     { icon: Heart, value: "∞", label: "Amor Compartilhado" },
   ];
 

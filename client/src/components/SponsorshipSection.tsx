@@ -30,7 +30,7 @@ export default function SponsorshipSection() {
 
   const stats = [
     { icon: Users, value: "300", label: "Animais Acolhidos" },
-    { icon: Calendar, value: "21", label: "Anos de Amor" },
+    { icon: Calendar, value: "22", label: "Anos de Amor" },
     { icon: Award, value: "500+", label: "Vidas Salvas" },
     { icon: DollarSign, value: "R$ 10.000", label: "Custo Mensal" },
   ];
