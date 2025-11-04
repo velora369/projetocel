@@ -7,7 +7,6 @@ import SponsorshipSection from "@/components/SponsorshipSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 import logoUrl from "@assets/images/logo.webp";
 import heroImage from "@assets/images/hero-new.webp";
@@ -44,7 +43,6 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer logoSrc={logoUrl} />
-      <FloatingWhatsApp />
     </div>
   );
 }

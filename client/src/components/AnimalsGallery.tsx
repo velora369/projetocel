@@ -62,7 +62,7 @@ export default function AnimalsGallery({ animals }: AnimalsGalleryProps) {
             Conheça Nossos <span className="gradient-text">Animais</span>
           </h3>
           
-          <div className="relative">
+          <div className="relative px-12 sm:px-16">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl blur-xl opacity-20 transition-opacity duration-500" />
             <div className="relative overflow-hidden rounded-xl" ref={emblaRef}>
               <div className="flex">
@@ -108,7 +108,7 @@ export default function AnimalsGallery({ animals }: AnimalsGalleryProps) {
             <Button
               size="icon"
               variant="outline"
-              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 shadow-lg hover-lift z-10 h-10 w-10 sm:h-12 sm:w-12"
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 shadow-lg hover-lift z-10 h-10 w-10 sm:h-12 sm:w-12"
               onClick={scrollPrev}
               data-testid="button-carousel-prev"
             >
@@ -117,7 +117,7 @@ export default function AnimalsGallery({ animals }: AnimalsGalleryProps) {
             <Button
               size="icon"
               variant="outline"
-              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 shadow-lg hover-lift z-10 h-10 w-10 sm:h-12 sm:w-12"
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 shadow-lg hover-lift z-10 h-10 w-10 sm:h-12 sm:w-12"
               onClick={scrollNext}
               data-testid="button-carousel-next"
             >
