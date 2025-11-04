@@ -21,28 +21,28 @@ export default function SponsorshipSection() {
     <section id="apadrinhamento" className="py-16 md:py-24 bg-accent/30">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fade-in-up">
             Programa de Apadrinhamento
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-100">
             Sua contribuição mensal mantém nosso abrigo funcionando e ajuda a salvar vidas
           </p>
         </div>
 
-        <Card className="p-6 sm:p-8 mb-8">
+        <Card className="p-6 sm:p-8 mb-8 hover-lift transition-all duration-300 animate-scale-in">
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <Users className="h-8 w-8 text-primary" />
+              <div className="flex items-center gap-3 animate-slide-in-left group">
+                <Users className="h-8 w-8 text-primary icon-bounce transition-all duration-300 group-hover:scale-110" />
                 <div>
-                  <div className="text-3xl font-bold text-foreground">
+                  <div className="text-3xl font-bold text-foreground gradient-text">
                     {currentSponsors}/{targetSponsors}
                   </div>
                   <div className="text-sm text-muted-foreground">Padrinhos Ativos</div>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <DollarSign className="h-8 w-8 text-primary" />
+              <div className="flex items-center gap-3 animate-slide-in-left delay-100 group">
+                <DollarSign className="h-8 w-8 text-primary icon-bounce transition-all duration-300 group-hover:scale-110" />
                 <div>
                   <div className="text-3xl font-bold text-foreground">R$ {monthlyValue}</div>
                   <div className="text-sm text-muted-foreground">Contribuição Mensal</div>
@@ -50,7 +50,7 @@ export default function SponsorshipSection() {
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-4 animate-slide-in-right">
               <div>
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium text-foreground">Meta Mensal</span>
@@ -60,7 +60,7 @@ export default function SponsorshipSection() {
                 </div>
                 <div className="h-3 bg-muted rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-primary transition-all duration-500"
+                    className="h-full bg-primary transition-all duration-1000 ease-out"
                     style={{ width: `${progressPercentage}%` }}
                   />
                 </div>
@@ -84,8 +84,8 @@ export default function SponsorshipSection() {
           </div>
 
           <div className="border-t pt-6">
-            <div className="flex items-start gap-3 mb-6">
-              <Building className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+            <div className="flex items-start gap-3 mb-6 group">
+              <Building className="h-6 w-6 text-primary flex-shrink-0 mt-1 icon-bounce transition-all duration-300 group-hover:scale-110" />
               <div>
                 <h3 className="font-semibold text-foreground mb-2">Dados Bancários</h3>
                 <div className="space-y-1 text-sm text-muted-foreground">
@@ -107,11 +107,11 @@ export default function SponsorshipSection() {
 
             <Button
               size="lg"
-              className="w-full gap-2 text-base"
+              className="w-full gap-2 text-base hover-lift hover-glow transition-all duration-300"
               onClick={() => window.open("https://wa.me/5511991233124", "_blank")}
               data-testid="button-sponsor-contact"
             >
-              <Heart className="h-5 w-5" />
+              <Heart className="h-5 w-5 icon-bounce" />
               Quero Ser um Padrinho
             </Button>
           </div>

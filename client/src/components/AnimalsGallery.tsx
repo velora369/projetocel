@@ -34,19 +34,19 @@ export default function AnimalsGallery({ animals }: AnimalsGalleryProps) {
     <section id="adocao" className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fade-in-up">
             Animais para Adoção
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in-up delay-100">
             Conheça nossos animais que estão esperando por uma família cheia de amor
           </p>
 
-          <div className="flex justify-center gap-3">
+          <div className="flex justify-center gap-3 animate-fade-in-up delay-200">
             <Button
               variant={filter === "all" ? "default" : "outline"}
               onClick={() => setFilter("all")}
               data-testid="button-filter-all"
-              className={filter === "all" ? "" : "hover-elevate"}
+              className={`transition-all duration-300 ${filter === "all" ? "hover-lift" : "hover-elevate"}`}
             >
               Todos os Animais
             </Button>
@@ -54,7 +54,7 @@ export default function AnimalsGallery({ animals }: AnimalsGalleryProps) {
               variant={filter === "adult" ? "default" : "outline"}
               onClick={() => setFilter("adult")}
               data-testid="button-filter-adult"
-              className={filter === "adult" ? "" : "hover-elevate"}
+              className={`transition-all duration-300 ${filter === "adult" ? "hover-lift" : "hover-elevate"}`}
             >
               Somente Adultos
             </Button>
@@ -62,20 +62,21 @@ export default function AnimalsGallery({ animals }: AnimalsGalleryProps) {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredAnimals.map((animal) => (
+          {filteredAnimals.map((animal, idx) => (
             <Card
               key={animal.id}
-              className="overflow-hidden hover-elevate group"
+              className="overflow-hidden hover-lift hover-glow group transition-all duration-300 animate-scale-in"
+              style={{ animationDelay: `${idx * 100}ms` }}
               data-testid={`card-animal-${animal.id}`}
             >
               <div className="aspect-[4/3] overflow-hidden relative">
                 <img
                   src={animal.image}
                   alt={animal.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 {animal.isAdult && (
-                  <Badge className="absolute top-3 right-3 bg-primary text-primary-foreground">
+                  <Badge className="absolute top-3 right-3 bg-primary text-primary-foreground animate-pulse">
                     Adulto
                   </Badge>
                 )}
@@ -89,11 +90,11 @@ export default function AnimalsGallery({ animals }: AnimalsGalleryProps) {
                   <span className="font-medium">Tipo:</span> {animal.type}
                 </p>
                 <Button
-                  className="w-full gap-2"
+                  className="w-full gap-2 hover-lift transition-all duration-300"
                   onClick={() => handleAdoptionInterest(animal.name)}
                   data-testid={`button-adopt-${animal.id}`}
                 >
-                  <SiWhatsapp className="h-4 w-4" />
+                  <SiWhatsapp className="h-4 w-4 icon-bounce" />
                   Quero Adotar
                 </Button>
               </div>

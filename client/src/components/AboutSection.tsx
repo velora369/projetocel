@@ -16,16 +16,16 @@ export default function AboutSection({ images }: AboutSectionProps) {
     <section id="quem-somos" className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fade-in-up">
             Quem Somos
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-100">
             ONG de Proteção Animal dedicada a dar um final feliz para cada animal
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
-          <div className="space-y-6">
+          <div className="space-y-6 animate-slide-in-left">
             <p className="text-base sm:text-lg text-foreground leading-relaxed">
               Desde <span className="font-semibold text-primary">2003</span>, a ProjetoCel tem
               como missão resgatar animais das ruas e oferecer a eles cuidados, amor e a esperança
@@ -43,17 +43,18 @@ export default function AboutSection({ images }: AboutSectionProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 animate-slide-in-right">
             {images.slice(0, 4).map((img, idx) => (
               <div
                 key={idx}
-                className="aspect-square rounded-lg overflow-hidden hover-elevate"
+                className="aspect-square rounded-lg overflow-hidden hover-lift hover-scale transition-all duration-300 animate-scale-in"
+                style={{ animationDelay: `${idx * 100}ms` }}
                 data-testid={`img-about-${idx}`}
               >
                 <img
                   src={img}
                   alt={`Trabalho ProjetoCel ${idx + 1}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
             ))}
@@ -64,11 +65,12 @@ export default function AboutSection({ images }: AboutSectionProps) {
           {stats.map((stat, idx) => (
             <Card
               key={idx}
-              className="p-6 text-center hover-elevate"
+              className="p-6 text-center hover-lift hover-glow transition-all duration-300 animate-fade-in-up"
+              style={{ animationDelay: `${idx * 150}ms` }}
               data-testid={`card-stat-${idx}`}
             >
-              <stat.icon className="h-10 w-10 mx-auto mb-3 text-primary" />
-              <div className="text-3xl sm:text-4xl font-bold text-foreground mb-2">
+              <stat.icon className="h-10 w-10 mx-auto mb-3 text-primary icon-bounce" />
+              <div className="text-3xl sm:text-4xl font-bold text-foreground mb-2 gradient-text">
                 {stat.value}
               </div>
               <div className="text-sm sm:text-base text-muted-foreground">{stat.label}</div>
