@@ -1,8 +1,23 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { DollarSign, Users, Heart, Building } from "lucide-react";
+import { DollarSign, Users, Heart, Building, Copy, Check } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { useToast } from "@/hooks/use-toast";
 
 export default function SponsorshipSection() {
+  const [open, setOpen] = useState(false);
+  const [copiedPix, setCopiedPix] = useState(false);
+  const [copiedField, setCopiedField] = useState<string | null>(null);
+  const { toast } = useToast();
+
   const goalAmount = 10000;
   const currentSponsors = 85;
   const targetSponsors = 200;
@@ -10,12 +25,44 @@ export default function SponsorshipSection() {
 
   const progressPercentage = (currentSponsors / targetSponsors) * 100;
 
+  const pixKey = "05.842.110/0001-14";
+  const bankDetails = {
+    banco: "Bradesco",
+    agencia: "2800-2",
+    conta: "12000-6",
+    cnpj: "05.842.110/0001-14",
+  };
+
   const benefits = [
-    "Ajuda a pagar aluguel do abrigo",
-    "Contribui com contas de luz e água",
-    "Garante alimentação para os animais",
-    "Financia cuidados veterinários básicos",
+    "Pagar o aluguel do abrigo",
+    "Cobrir as contas de luz e água",
+    "Comprar ração para os animais",
+    "Pagar os ajudantes do abrigo",
+    "Garantir remédios e cuidados veterinários",
   ];
+
+  const copyToClipboard = async (text: string, label: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      if (label === "PIX") {
+        setCopiedPix(true);
+        setTimeout(() => setCopiedPix(false), 2000);
+      } else {
+        setCopiedField(label);
+        setTimeout(() => setCopiedField(null), 2000);
+      }
+      toast({
+        title: "Copiado!",
+        description: `${label} copiado para a área de transferência.`,
+      });
+    } catch (err) {
+      toast({
+        title: "Erro ao copiar",
+        description: "Não foi possível copiar. Tente novamente.",
+        variant: "destructive",
+      });
+    }
+  };
 
   return (
     <section id="apadrinhamento" className="relative py-16 md:py-24 overflow-hidden">
@@ -32,7 +79,7 @@ export default function SponsorshipSection() {
             Neste momento, 300 animais dependem da nossa ajuda para sobreviver. Cada um deles tem uma história de abandono, mas todos compartilham a mesma esperança: encontrar um lar.
           </p>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-200">
-            Sem padrinhos, não conseguimos pagar o aluguel, a ração ou os cuidados veterinários. <span className="font-semibold text-foreground">Sua doação mensal de R$ 50 pode ser a diferença entre a vida e a morte</span> para esses animais inocentes.
+            O apadrinhamento é essencial para ajudar a pagar as contas do abrigo, incluindo aluguel, contas de luz e água, ração para os animais, salário dos ajudantes e remédios. <span className="font-semibold text-foreground">Sua doação mensal de R$ 50 pode ser a diferença entre a vida e a morte</span> para esses animais inocentes.
           </p>
         </div>
 
@@ -95,27 +142,143 @@ export default function SponsorshipSection() {
               </div>
             </div>
 
-            <div className="border-t border-primary/10 pt-6">
-              <div className="flex items-start gap-3 mb-6 group">
-                <Building className="h-6 w-6 text-primary flex-shrink-0 mt-1 icon-bounce transition-all duration-300 group-hover:scale-110" />
-                <div>
-                  <h3 className="font-semibold text-foreground mb-2">Dados Bancários</h3>
-                  <div className="space-y-1 text-sm text-muted-foreground">
-                    <p>
-                      <span className="font-medium">Banco:</span> Bradesco
-                    </p>
-                    <p>
-                      <span className="font-medium">Agência:</span> 2800-2
-                    </p>
-                    <p>
-                      <span className="font-medium">Conta Corrente:</span> 12000-6
-                    </p>
-                    <p>
-                      <span className="font-medium">CNPJ:</span> 05.842.110/0001-14
-                    </p>
+            <div className="border-t border-primary/10 pt-6 space-y-4">
+              <Dialog open={open} onOpenChange={setOpen}>
+                <DialogTrigger asChild>
+                  <Card className="group relative p-6 bg-gradient-to-r from-primary/10 to-accent/10 border-primary/30 hover:border-primary/50 transition-all duration-300 hover-lift cursor-pointer">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="p-3 rounded-full bg-primary/20 border border-primary/30">
+                          <Heart className="h-6 w-6 text-primary icon-bounce transition-all duration-300 group-hover:scale-110" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-foreground text-lg">Doe Aqui</h3>
+                          <p className="text-sm text-muted-foreground">Clique para ver os dados bancários</p>
+                        </div>
+                      </div>
+                      <Building className="h-6 w-6 text-primary transition-all duration-300 group-hover:scale-110" />
+                    </div>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md">
+                  <DialogHeader>
+                    <DialogTitle className="text-xl">Dados para Doação</DialogTitle>
+                    <DialogDescription>
+                      Escolha entre PIX ou transferência bancária
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="space-y-6">
+                    <div className="space-y-3">
+                      <h4 className="font-semibold text-foreground flex items-center gap-2">
+                        <Heart className="h-4 w-4 text-primary" />
+                        PIX (CNPJ)
+                      </h4>
+                      <div className="flex items-center gap-2">
+                        <div className="flex-1 p-3 bg-muted rounded-md border border-border">
+                          <p className="text-sm font-mono text-foreground">{pixKey}</p>
+                        </div>
+                        <Button
+                          size="icon"
+                          variant="outline"
+                          onClick={() => copyToClipboard(pixKey, "PIX")}
+                          data-testid="button-copy-pix"
+                        >
+                          {copiedPix ? (
+                            <Check className="h-4 w-4 text-green-500" />
+                          ) : (
+                            <Copy className="h-4 w-4" />
+                          )}
+                        </Button>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-border pt-4 space-y-3">
+                      <h4 className="font-semibold text-foreground flex items-center gap-2">
+                        <Building className="h-4 w-4 text-primary" />
+                        Dados Bancários
+                      </h4>
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between p-2 rounded-md hover:bg-muted/50 transition-colors">
+                          <div>
+                            <p className="text-xs text-muted-foreground">Banco</p>
+                            <p className="text-sm font-medium text-foreground">{bankDetails.banco}</p>
+                          </div>
+                          <Button
+                            size="icon"
+                            variant="ghost"
+                            className="h-8 w-8"
+                            onClick={() => copyToClipboard(bankDetails.banco, "Banco")}
+                            data-testid="button-copy-banco"
+                          >
+                            {copiedField === "Banco" ? (
+                              <Check className="h-3 w-3 text-green-500" />
+                            ) : (
+                              <Copy className="h-3 w-3" />
+                            )}
+                          </Button>
+                        </div>
+                        <div className="flex items-center justify-between p-2 rounded-md hover:bg-muted/50 transition-colors">
+                          <div>
+                            <p className="text-xs text-muted-foreground">Agência</p>
+                            <p className="text-sm font-medium text-foreground">{bankDetails.agencia}</p>
+                          </div>
+                          <Button
+                            size="icon"
+                            variant="ghost"
+                            className="h-8 w-8"
+                            onClick={() => copyToClipboard(bankDetails.agencia, "Agência")}
+                            data-testid="button-copy-agencia"
+                          >
+                            {copiedField === "Agência" ? (
+                              <Check className="h-3 w-3 text-green-500" />
+                            ) : (
+                              <Copy className="h-3 w-3" />
+                            )}
+                          </Button>
+                        </div>
+                        <div className="flex items-center justify-between p-2 rounded-md hover:bg-muted/50 transition-colors">
+                          <div>
+                            <p className="text-xs text-muted-foreground">Conta Corrente</p>
+                            <p className="text-sm font-medium text-foreground">{bankDetails.conta}</p>
+                          </div>
+                          <Button
+                            size="icon"
+                            variant="ghost"
+                            className="h-8 w-8"
+                            onClick={() => copyToClipboard(bankDetails.conta, "Conta Corrente")}
+                            data-testid="button-copy-conta"
+                          >
+                            {copiedField === "Conta Corrente" ? (
+                              <Check className="h-3 w-3 text-green-500" />
+                            ) : (
+                              <Copy className="h-3 w-3" />
+                            )}
+                          </Button>
+                        </div>
+                        <div className="flex items-center justify-between p-2 rounded-md hover:bg-muted/50 transition-colors">
+                          <div>
+                            <p className="text-xs text-muted-foreground">CNPJ</p>
+                            <p className="text-sm font-medium text-foreground">{bankDetails.cnpj}</p>
+                          </div>
+                          <Button
+                            size="icon"
+                            variant="ghost"
+                            className="h-8 w-8"
+                            onClick={() => copyToClipboard(bankDetails.cnpj, "CNPJ")}
+                            data-testid="button-copy-cnpj"
+                          >
+                            {copiedField === "CNPJ" ? (
+                              <Check className="h-3 w-3 text-green-500" />
+                            ) : (
+                              <Copy className="h-3 w-3" />
+                            )}
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                </DialogContent>
+              </Dialog>
 
               <Button
                 size="lg"
