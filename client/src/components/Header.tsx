@@ -8,7 +8,7 @@ interface HeaderProps {
 }
 
 export default function Header({ logoSrc }: HeaderProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function Header({ logoSrc }: HeaderProps) {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setMobileMenuOpen(false);
+      setMenuOpen(false);
     }
   };
 
@@ -37,100 +37,78 @@ export default function Header({ logoSrc }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-lg shadow-lg" : "bg-background/80 backdrop-blur-md"
-      } border-b`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled 
+          ? "bg-background/98 backdrop-blur-xl shadow-lg border-b border-border/50" 
+          : "bg-background/85 backdrop-blur-lg border-b border-border/30"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center h-16 md:h-20">
+        <div className="flex items-center justify-between h-16 md:h-18">
           <div className="flex items-center animate-fade-in">
             <img
               src={logoSrc}
               alt="ProjetoCel"
-              className="h-10 md:h-12 w-auto transition-transform duration-300 hover:scale-105"
+              className="h-10 md:h-12 w-auto transition-all duration-300 hover:scale-105 cursor-pointer"
+              onClick={() => scrollToSection("inicio")}
             />
-          </div>
-
-          <nav className="hidden md:flex items-center gap-1 flex-1 justify-center">
-            {navItems.map((item, idx) => (
-              <Button
-                key={item.id}
-                variant="ghost"
-                onClick={() => scrollToSection(item.id)}
-                data-testid={`button-nav-${item.id}`}
-                className="hover-elevate transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${idx * 50}ms` }}
-              >
-                {item.label}
-              </Button>
-            ))}
-          </nav>
-
-          <div className="hidden md:flex items-center gap-3 animate-fade-in delay-300">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => window.open("https://www.instagram.com/projetocel", "_blank")}
-              data-testid="button-instagram"
-              className="hover-elevate icon-bounce"
-            >
-              <SiInstagram className="h-4 w-4" />
-            </Button>
-            <Button
-              onClick={() => window.open("https://wa.me/5511991233124", "_blank")}
-              data-testid="button-whatsapp-header"
-              className="gap-2 hover-lift"
-            >
-              <SiWhatsapp className="h-4 w-4" />
-              <span>WhatsApp</span>
-            </Button>
           </div>
 
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden ml-auto hover-elevate"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="ml-auto hover-elevate active-elevate-2 transition-all duration-300"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={menuOpen}
+            aria-controls="main-menu"
             data-testid="button-menu-toggle"
           >
-            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {menuOpen ? (
+              <X className="h-5 w-5 transition-transform duration-300 rotate-90" />
+            ) : (
+              <Menu className="h-5 w-5 transition-transform duration-300" />
+            )}
           </Button>
         </div>
       </div>
 
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t bg-background/95 backdrop-blur-lg animate-fade-in">
-          <div className="px-4 py-4 space-y-2">
+      {menuOpen && (
+        <div id="main-menu" className="border-t border-border/40 bg-background/98 backdrop-blur-xl animate-fade-in shadow-2xl">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-1">
             {navItems.map((item, idx) => (
               <Button
                 key={item.id}
                 variant="ghost"
                 onClick={() => scrollToSection(item.id)}
-                className="w-full justify-start hover-elevate animate-slide-in-right"
+                className="w-full justify-start text-base md:text-lg hover-elevate active-elevate-2 animate-slide-in-right transition-all duration-300"
                 style={{ animationDelay: `${idx * 50}ms` }}
-                data-testid={`button-nav-mobile-${item.id}`}
+                data-testid={`button-nav-${item.id}`}
               >
                 {item.label}
               </Button>
             ))}
-            <div className="flex gap-2 pt-2 animate-fade-in-up delay-300">
-              <Button
-                variant="outline"
-                className="flex-1 gap-2 hover-elevate"
-                onClick={() => window.open("https://www.instagram.com/projetocel", "_blank")}
-                data-testid="button-instagram-mobile"
-              >
-                <SiInstagram className="h-4 w-4" />
-                Instagram
-              </Button>
-              <Button
-                className="flex-1 gap-2"
-                onClick={() => window.open("https://wa.me/5511991233124", "_blank")}
-                data-testid="button-whatsapp-mobile"
-              >
-                <SiWhatsapp className="h-4 w-4" />
-                WhatsApp
-              </Button>
+            
+            <div className="pt-4 border-t border-border/30 mt-4">
+              <div className="flex flex-col sm:flex-row gap-3 animate-fade-in-up delay-300">
+                <Button
+                  variant="outline"
+                  className="flex-1 gap-2 hover-elevate active-elevate-2 justify-center transition-all duration-300"
+                  onClick={() => window.open("https://www.instagram.com/projetocel", "_blank")}
+                  data-testid="button-instagram"
+                >
+                  <SiInstagram className="h-4 w-4" />
+                  <span>Instagram</span>
+                </Button>
+                <Button
+                  className="flex-1 gap-2 justify-center transition-all duration-300 hover-lift"
+                  onClick={() => window.open("https://wa.me/5511991233124", "_blank")}
+                  data-testid="button-whatsapp-header"
+                >
+                  <SiWhatsapp className="h-4 w-4" />
+                  <span>WhatsApp</span>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
