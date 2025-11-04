@@ -48,16 +48,16 @@ export default function AdultAdoptionCampaign() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-3 gap-6 mb-12 md:items-stretch">
           {benefits.map((benefit, idx) => (
             <div
               key={idx}
-              className="group relative animate-scale-in"
+              className="group relative animate-scale-in flex"
               style={{ animationDelay: `${idx * 150}ms` }}
               data-testid={`card-benefit-${idx}`}
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition duration-500" />
-              <Card className="relative p-6 bg-card/50 backdrop-blur-sm border border-primary/10 hover:border-primary/30 transition-all duration-300 hover-lift">
+              <Card className="relative p-6 bg-card/50 backdrop-blur-sm border border-primary/10 hover:border-primary/30 transition-all duration-300 hover-lift flex flex-col w-full h-full">
                 <benefit.icon className="h-12 w-12 text-primary mb-4 icon-bounce transition-all duration-300 group-hover:scale-110" />
                 <h3 className="text-xl font-semibold text-foreground mb-3">{benefit.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>

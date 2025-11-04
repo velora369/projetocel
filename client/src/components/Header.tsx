@@ -44,7 +44,7 @@ export default function Header({ logoSrc }: HeaderProps) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-18">
+        <div className="flex items-center justify-between h-16 md:h-18 gap-8">
           <div className="flex items-center animate-fade-in">
             <img
               src={logoSrc}
@@ -54,10 +54,44 @@ export default function Header({ logoSrc }: HeaderProps) {
             />
           </div>
 
+          <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
+            {navItems.map((item) => (
+              <Button
+                key={item.id}
+                variant="ghost"
+                onClick={() => scrollToSection(item.id)}
+                className="hover-elevate active-elevate-2 transition-all duration-300"
+                data-testid={`button-nav-${item.id}`}
+              >
+                {item.label}
+              </Button>
+            ))}
+          </nav>
+
+          <div className="hidden lg:flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="icon"
+              className="hover-elevate active-elevate-2 transition-all duration-300"
+              onClick={() => window.open("https://www.instagram.com/projetocel", "_blank")}
+              data-testid="button-instagram"
+            >
+              <SiInstagram className="h-4 w-4" />
+            </Button>
+            <Button
+              size="icon"
+              className="transition-all duration-300 hover-lift"
+              onClick={() => window.open("https://wa.me/5511991233124", "_blank")}
+              data-testid="button-whatsapp-header"
+            >
+              <SiWhatsapp className="h-4 w-4" />
+            </Button>
+          </div>
+
           <Button
             variant="ghost"
             size="icon"
-            className="ml-auto hover-elevate active-elevate-2 transition-all duration-300"
+            className="lg:hidden hover-elevate active-elevate-2 transition-all duration-300"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={menuOpen}
@@ -74,7 +108,7 @@ export default function Header({ logoSrc }: HeaderProps) {
       </div>
 
       {menuOpen && (
-        <div id="main-menu" className="border-t border-border/40 bg-background/98 backdrop-blur-xl animate-fade-in shadow-2xl">
+        <div id="main-menu" className="lg:hidden border-t border-border/40 bg-background/98 backdrop-blur-xl animate-fade-in shadow-2xl">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-1">
             {navItems.map((item, idx) => (
               <Button
@@ -83,7 +117,7 @@ export default function Header({ logoSrc }: HeaderProps) {
                 onClick={() => scrollToSection(item.id)}
                 className="w-full justify-start text-base md:text-lg hover-elevate active-elevate-2 animate-slide-in-right transition-all duration-300"
                 style={{ animationDelay: `${idx * 50}ms` }}
-                data-testid={`button-nav-${item.id}`}
+                data-testid={`button-nav-${item.id}-mobile`}
               >
                 {item.label}
               </Button>
@@ -95,7 +129,7 @@ export default function Header({ logoSrc }: HeaderProps) {
                   variant="outline"
                   className="flex-1 gap-2 hover-elevate active-elevate-2 justify-center transition-all duration-300"
                   onClick={() => window.open("https://www.instagram.com/projetocel", "_blank")}
-                  data-testid="button-instagram"
+                  data-testid="button-instagram-mobile"
                 >
                   <SiInstagram className="h-4 w-4" />
                   <span>Instagram</span>
@@ -103,7 +137,7 @@ export default function Header({ logoSrc }: HeaderProps) {
                 <Button
                   className="flex-1 gap-2 justify-center transition-all duration-300 hover-lift"
                   onClick={() => window.open("https://wa.me/5511991233124", "_blank")}
-                  data-testid="button-whatsapp-header"
+                  data-testid="button-whatsapp-mobile"
                 >
                   <SiWhatsapp className="h-4 w-4" />
                   <span>WhatsApp</span>
