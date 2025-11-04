@@ -32,11 +32,11 @@ export default function AboutSection({ images }: AboutSectionProps) {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-16">
-          <div className="space-y-6 animate-slide-in-left">
-            <div className="relative group">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 mb-16">
+          <div className="flex flex-col gap-6 animate-slide-in-left">
+            <div className="relative group flex-1">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-primary/10 hover:border-primary/30 transition-all duration-300">
+              <div className="relative h-full p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-primary/10 hover:border-primary/30 transition-all duration-300 flex items-center">
                 <p className="text-base sm:text-lg text-foreground leading-relaxed">
                   Desde <span className="font-bold text-primary">2003</span>, a ProjetoCel tem
                   como missão resgatar animais das ruas e oferecer a eles cuidados, amor e a esperança
@@ -45,9 +45,9 @@ export default function AboutSection({ images }: AboutSectionProps) {
               </div>
             </div>
 
-            <div className="relative group">
+            <div className="relative group flex-1">
               <div className="absolute -inset-1 bg-gradient-to-r from-accent/20 to-primary/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-accent/10 hover:border-accent/30 transition-all duration-300">
+              <div className="relative h-full p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-accent/10 hover:border-accent/30 transition-all duration-300 flex items-center">
                 <p className="text-base sm:text-lg text-foreground leading-relaxed">
                   Atualmente, temos sob nossa guarda{" "}
                   <span className="font-bold text-accent">300 animais</span>, cada um com sua
@@ -56,9 +56,9 @@ export default function AboutSection({ images }: AboutSectionProps) {
               </div>
             </div>
 
-            <div className="relative group">
+            <div className="relative group flex-1">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition duration-500" />
-              <div className="relative p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-primary/10 hover:border-primary/30 transition-all duration-300">
+              <div className="relative h-full p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-primary/10 hover:border-primary/30 transition-all duration-300 flex items-center">
                 <p className="text-base sm:text-lg text-foreground leading-relaxed">
                   Dependemos da generosidade da sociedade para manter nosso abrigo funcionando. Cada
                   contribuição nos ajuda a pagar aluguel, contas de luz e água, além de cuidados
