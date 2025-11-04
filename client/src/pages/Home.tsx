@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import AdultAdoptionCampaign from "@/components/AdultAdoptionCampaign";
 import AnimalsGallery from "@/components/AnimalsGallery";
+import OurSpaceSection from "@/components/OurSpaceSection";
 import SponsorshipSection from "@/components/SponsorshipSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import ContactSection from "@/components/ContactSection";
@@ -38,6 +39,7 @@ export default function Home() {
         <AboutSection images={aboutImages} />
         <AdultAdoptionCampaign />
         <AnimalsGallery animals={animals} />
+        <OurSpaceSection />
         <SponsorshipSection />
         <HowItWorksSection />
         <ContactSection />
