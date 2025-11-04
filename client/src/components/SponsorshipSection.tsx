@@ -81,7 +81,7 @@ export default function SponsorshipSection() {
             Neste momento, 300 animais dependem da nossa ajuda para sobreviver. Cada um deles tem uma história de abandono, mas todos compartilham a mesma esperança: encontrar um lar.
           </p>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-200">
-            O apadrinhamento é essencial para ajudar a pagar as contas do abrigo, incluindo aluguel, contas de luz e água, ração para os animais, salário dos ajudantes e remédios. <span className="font-semibold text-foreground">Sua doação mensal de R$ 50 pode ser a diferença entre a vida e a morte</span> para esses animais inocentes.
+            O apadrinhamento nos ajuda a manter o abrigo funcionando, garantindo alimentação, cuidados veterinários e um lar seguro para cada animal. <span className="font-semibold text-foreground">Com apenas R$ 50 mensais, você pode fazer parte dessa transformação</span> e ajudar a mudar a história de muitos bichinhos.
           </p>
         </div>
 
