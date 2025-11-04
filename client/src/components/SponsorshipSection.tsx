@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { DollarSign, Users, Heart, Building, Copy, Check } from "lucide-react";
+import { DollarSign, Users, Heart, Building, Copy, Check, Calendar, Award } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -19,11 +19,6 @@ export default function SponsorshipSection() {
   const { toast } = useToast();
 
   const goalAmount = 10000;
-  const currentSponsors = 85;
-  const targetSponsors = 200;
-  const monthlyValue = 50;
-
-  const progressPercentage = (currentSponsors / targetSponsors) * 100;
 
   const pixKey = "05.842.110/0001-14";
   const bankDetails = {
@@ -32,6 +27,13 @@ export default function SponsorshipSection() {
     conta: "12000-6",
     cnpj: "05.842.110/0001-14",
   };
+
+  const stats = [
+    { icon: Users, value: "300", label: "Animais Acolhidos" },
+    { icon: Calendar, value: "21", label: "Anos de Amor" },
+    { icon: Award, value: "500+", label: "Vidas Salvas" },
+    { icon: DollarSign, value: "R$ 10.000", label: "Custo Mensal" },
+  ];
 
   const benefits = [
     "Pagar o aluguel do abrigo",
@@ -86,59 +88,34 @@ export default function SponsorshipSection() {
         <div className="group relative animate-scale-in">
           <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
           <Card className="relative p-6 sm:p-8 mb-8 bg-card/80 backdrop-blur-md border-primary/20 hover:border-primary/40 transition-all duration-500 hover-lift">
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 animate-slide-in-left group">
-                  <Users className="h-8 w-8 text-primary icon-bounce transition-all duration-300 group-hover:scale-110" />
-                  <div>
-                    <div className="text-3xl font-bold text-foreground gradient-text">
-                      {currentSponsors}/{targetSponsors}
-                    </div>
-                    <div className="text-sm text-muted-foreground">Padrinhos Ativos</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {stats.map((stat, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-col items-center text-center p-4 rounded-lg bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10 hover:border-primary/30 transition-all duration-300 hover-lift"
+                >
+                  <stat.icon className="h-8 w-8 text-primary mb-2 icon-bounce transition-all duration-300" />
+                  <div className="text-2xl md:text-3xl font-bold text-foreground gradient-text mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs md:text-sm text-muted-foreground">
+                    {stat.label}
                   </div>
                 </div>
-                <div className="flex items-center gap-3 animate-slide-in-left delay-100 group">
-                  <DollarSign className="h-8 w-8 text-primary icon-bounce transition-all duration-300 group-hover:scale-110" />
-                  <div>
-                    <div className="text-3xl font-bold text-foreground gradient-text">R$ {monthlyValue}</div>
-                    <div className="text-sm text-muted-foreground">Contribuição Mensal</div>
-                  </div>
-                </div>
-              </div>
+              ))}
+            </div>
 
-              <div className="space-y-4 animate-slide-in-right">
-                <div className="relative">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-medium text-foreground">Meta Mensal</span>
-                    <span className="text-sm font-medium gradient-text">
-                      {progressPercentage.toFixed(0)}%
-                    </span>
-                  </div>
-                  <div className="relative h-4 bg-muted/50 backdrop-blur-sm rounded-full overflow-hidden border border-primary/20">
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10" />
-                    <div
-                      className="relative h-full bg-gradient-to-r from-primary to-accent transition-all duration-1000 ease-out shadow-[0_0_20px_rgba(2,178,255,0.5)]"
-                      style={{ width: `${progressPercentage}%` }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/20" />
-                    </div>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-2">
-                    Meta: R$ {goalAmount.toLocaleString("pt-BR")}/mês
-                  </p>
-                </div>
-
-                <div className="text-sm text-muted-foreground">
-                  <p className="mb-2 font-medium text-foreground">O que sua doação ajuda:</p>
-                  <ul className="space-y-1">
-                    {benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <Heart className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <div className="space-y-4 mb-8">
+              <div className="text-sm text-muted-foreground">
+                <p className="mb-2 font-medium text-foreground">O que sua doação ajuda:</p>
+                <ul className="grid md:grid-cols-2 gap-2">
+                  {benefits.map((benefit, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <Heart className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
@@ -283,7 +260,7 @@ export default function SponsorshipSection() {
               <Button
                 size="lg"
                 className="w-full gap-2 text-base hover-lift hover-glow transition-all duration-300"
-                onClick={() => window.open("https://wa.me/5511991233124", "_blank")}
+                onClick={() => window.open("https://wa.me/5511991233124?text=Ol%C3%A1%21%20Vim%20do%20site%20do%20ProjetoCel%20e%20gostaria%20de%20ser%20um%20padrinho%21", "_blank")}
                 data-testid="button-sponsor-contact"
               >
                 <Heart className="h-5 w-5 icon-bounce" />
