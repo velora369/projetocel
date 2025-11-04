@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 import logoUrl from "@assets/images/logo.webp";
-import heroImage from "@assets/images/foto7.webp";
+import heroImage from "@assets/images/hero-new.webp";
 import foto2 from "@assets/images/foto2.webp";
 import foto4 from "@assets/images/foto4.webp";
 import foto5 from "@assets/images/foto5.webp";

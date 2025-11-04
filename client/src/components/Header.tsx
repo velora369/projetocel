@@ -42,8 +42,8 @@ export default function Header({ logoSrc }: HeaderProps) {
       } border-b`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <div className="flex items-center gap-2 animate-fade-in">
+        <div className="grid grid-cols-3 items-center h-16 md:h-20">
+          <div className="flex items-center justify-start animate-fade-in">
             <img
               src={logoSrc}
               alt="ProjetoCel"
@@ -51,7 +51,7 @@ export default function Header({ logoSrc }: HeaderProps) {
             />
           </div>
 
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center justify-center gap-1">
             {navItems.map((item, idx) => (
               <Button
                 key={item.id}
@@ -66,7 +66,7 @@ export default function Header({ logoSrc }: HeaderProps) {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3 animate-fade-in delay-300">
+          <div className="hidden md:flex items-center justify-end gap-3 animate-fade-in delay-300">
             <Button
               variant="outline"
               size="icon"
@@ -89,7 +89,7 @@ export default function Header({ logoSrc }: HeaderProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden hover-elevate"
+            className="md:hidden col-start-3 justify-self-end hover-elevate"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             data-testid="button-menu-toggle"
           >
