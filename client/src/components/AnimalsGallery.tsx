@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SiWhatsapp } from "react-icons/si";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
 
 interface Animal {
   id: number;
@@ -19,8 +21,21 @@ interface AnimalsGalleryProps {
 
 export default function AnimalsGallery({ animals }: AnimalsGalleryProps) {
   const [filter, setFilter] = useState<"all" | "adult">("all");
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    align: "start",
+    slidesToScroll: 1,
+  });
 
   const filteredAnimals = filter === "adult" ? animals.filter((a) => a.isAdult) : animals;
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
   const handleAdoptionInterest = (animalName: string) => {
     const message = `Olá! Tenho interesse em adotar o(a) ${animalName}. Gostaria de mais informações.`;
@@ -41,10 +56,63 @@ export default function AnimalsGallery({ animals }: AnimalsGalleryProps) {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fade-in-up">
             Animais para <span className="gradient-text">Adoção</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in-up delay-100">
-            Conheça nossos animais que estão esperando por uma família cheia de amor
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-100">
+            Temos animais adultos e filhotes, entre gatos e cachorros, todos esperando por uma família cheia de amor
           </p>
+        </div>
 
+        <div className="mb-16">
+          <h3 className="text-2xl sm:text-3xl font-semibold text-foreground text-center mb-8 animate-fade-in-up delay-200">
+            Conheça Nossos <span className="gradient-text">Animais</span>
+          </h3>
+          
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
+            <div className="relative overflow-hidden rounded-xl" ref={emblaRef}>
+              <div className="flex gap-4">
+                {animals.map((animal) => (
+                  <div
+                    key={animal.id}
+                    className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0"
+                    data-testid={`carousel-slide-${animal.id}`}
+                  >
+                    <div className="relative group/slide overflow-hidden rounded-lg mx-2">
+                      <div className="aspect-[4/3] overflow-hidden">
+                        <img
+                          src={animal.image}
+                          alt="Animal disponível para adoção"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-110"
+                        />
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover/slide:opacity-100 transition-opacity duration-300" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <Button
+              size="icon"
+              variant="outline"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover-lift z-10"
+              onClick={scrollPrev}
+              data-testid="button-carousel-prev"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Button>
+            <Button
+              size="icon"
+              variant="outline"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover-lift z-10"
+              onClick={scrollNext}
+              data-testid="button-carousel-next"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+
+        <div className="text-center mb-8">
           <div className="flex justify-center gap-3 animate-fade-in-up delay-200">
             <Button
               variant={filter === "all" ? "default" : "outline"}
