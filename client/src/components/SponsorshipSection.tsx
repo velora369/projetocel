@@ -78,7 +78,7 @@ export default function SponsorshipSection() {
             Programa de <span className="gradient-text">Apadrinhamento</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-3 animate-fade-in-up delay-100">
-            Neste momento, 300 animais dependem da nossa ajuda para sobreviver. Cada um deles tem uma história de abandono, mas todos compartilham a mesma esperança: encontrar um lar.
+            Neste momento, 300 animais dependem da nossa ajuda para sobreviver. Cada um deles tem uma história, mas todos compartilham a mesma esperança: encontrar um lar.
           </p>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-200">
             O apadrinhamento nos ajuda a manter o abrigo funcionando, garantindo alimentação, cuidados veterinários e um lar seguro para cada animal. <span className="font-semibold text-foreground">Com apenas R$ 50 mensais, você pode fazer parte dessa transformação</span> e ajudar a mudar a história de muitos bichinhos.

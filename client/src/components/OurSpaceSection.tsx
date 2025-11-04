@@ -10,8 +10,11 @@ export default function OurSpaceSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fade-in-up">
             Conheça Nosso <span className="gradient-text">Espaço</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-100">
-            Um ambiente acolhedor e seguro, preparado com carinho para receber nossos animais e visitantes
+          <p className="text-xl font-semibold text-foreground max-w-2xl mx-auto mb-3 animate-fade-in-up delay-100">
+            Entenda nossa realidade
+          </p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-200">
+            Nos ajude a dar uma vida mais confortável para todos os nossos animais. Cada contribuição faz a diferença para garantir que eles tenham um espaço seguro, acolhedor e cheio de amor.
           </p>
         </div>
 
