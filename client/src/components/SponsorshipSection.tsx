@@ -126,7 +126,7 @@ export default function SponsorshipSection() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div className="p-3 rounded-full bg-primary/20 border border-primary/30">
-                          <Heart className="h-6 w-6 text-primary icon-bounce transition-all duration-300 group-hover:scale-110" />
+                          <Building className="h-6 w-6 text-primary icon-bounce transition-all duration-300 group-hover:scale-110" />
                         </div>
                         <div>
                           <h3 className="font-semibold text-foreground text-lg">Doe Aqui</h3>
