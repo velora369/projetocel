@@ -44,12 +44,12 @@ export default function Header({ logoSrc }: HeaderProps) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-18 gap-8">
-          <div className="flex items-center animate-fade-in">
+        <div className="flex items-center justify-between h-14 md:h-14 gap-4">
+          <div className="flex items-center animate-fade-in lg:-ml-8">
             <img
               src={logoSrc}
               alt="ProjetoCel"
-              className="h-10 md:h-12 w-auto transition-all duration-300 hover:scale-105 cursor-pointer"
+              className="h-8 md:h-10 w-auto transition-all duration-300 hover:scale-105 cursor-pointer"
               onClick={() => scrollToSection("inicio")}
             />
           </div>
