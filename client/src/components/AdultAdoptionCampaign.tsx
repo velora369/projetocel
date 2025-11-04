@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Heart, Clock, Smile } from "lucide-react";
+import { Heart, Sparkles, Smile } from "lucide-react";
 
 export default function AdultAdoptionCampaign() {
   const benefits = [
@@ -11,10 +11,10 @@ export default function AdultAdoptionCampaign() {
         "Animais adultos já têm personalidade definida. Você saberá exatamente o temperamento do seu novo companheiro.",
     },
     {
-      icon: Clock,
-      title: "Menos Trabalho",
+      icon: Sparkles,
+      title: "Segunda Chance de Vida",
       description:
-        "Muitos já são treinados e não precisam de supervisão constante como filhotes. Adaptação mais tranquila.",
+        "Animais adultos têm menos chances de adoção. Ao escolher um deles, você está literalmente salvando uma vida e oferecendo a segunda chance que eles merecem.",
     },
     {
       icon: Smile,

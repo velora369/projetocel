@@ -24,8 +24,11 @@ export default function SponsorshipSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fade-in-up">
             Programa de Apadrinhamento
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-100">
-            Sua contribuição mensal mantém nosso abrigo funcionando e ajuda a salvar vidas
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-3 animate-fade-in-up delay-100">
+            Neste momento, 300 animais dependem da nossa ajuda para sobreviver. Cada um deles tem uma história de abandono, mas todos compartilham a mesma esperança: encontrar um lar.
+          </p>
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-200">
+            Sem padrinhos, não conseguimos pagar o aluguel, a ração ou os cuidados veterinários. <span className="font-semibold text-foreground">Sua doação mensal de R$ 50 pode ser a diferença entre a vida e a morte</span> para esses animais inocentes.
           </p>
         </div>
 
