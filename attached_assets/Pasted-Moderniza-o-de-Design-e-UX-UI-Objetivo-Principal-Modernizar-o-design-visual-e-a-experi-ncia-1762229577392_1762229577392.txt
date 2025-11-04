@@ -1,0 +1,22 @@
+Modernização de Design e UX/UI**
+
+**Objetivo Principal:** Modernizar o design visual e a experiência do usuário (UX/UI) deste site, aplicando princípios de design contemporâneos, fluidez e responsividade impecável. O objetivo é criar uma interface elegante, intuitiva e agradável de usar, independentemente do conteúdo ou nicho do site.
+
+**Diretrizes Essenciais de Design e UX/UI (Aplicar Globalmente):**
+
+1. **Estética Moderna e Limpa:**
+    - **Minimalismo:** Simplifique layouts, remova elementos desnecessários e foque no conteúdo essencial.
+    - **Espaçamento Generoso:** Utilize espaços em branco (padding, margin) de forma estratégica para criar respiro visual, melhorar a legibilidade e organizar o conteúdo.
+    - **Elementos Arredondados:** Aplique cantos arredondados (`rounded-md`, `rounded-lg`, `rounded-xl`) a botões, cards, inputs e imagens para um visual mais suave e moderno.
+    - **Sombras e Gradientes Sutis:** Use sombras suaves (`shadow-md`, `shadow-lg`) ou gradientes discretos para adicionar profundidade e destacar elementos interativos ou cards, evitando excessos.
+2. **Fluidez e Suavidade:**
+    - **Transições Suaves:** Todas as mudanças de estado (hover, focus, active) e navegação entre páginas/seções devem ter transições CSS suaves (`transition-all duration-300 ease-in-out`).
+    - **Animações de Entrada:** Implemente animações de entrada sutis (fade-in, slide-up leve) para seções ou elementos principais conforme eles entram na viewport durante o scroll. Use `Intersection Observer` ou bibliotecas como `Framer Motion` (se apropriado para o projeto).
+3. **Microinterações Significativas:**
+    - **Feedback Visual:** Elementos interativos (botões, links, cards clicáveis, inputs) DEVEM ter feedback visual claro nos estados de hover e focus (ex: mudança sutil de cor, leve scale, sombra mais pronunciada, brilho discreto). Isso melhora a usabilidade e a percepção de qualidade.
+4. **Responsividade Impecável:**
+    - **Mobile-First ou Adaptativo:** Garanta que o layout se adapte perfeitamente a todos os tamanhos de tela (mobile, tablet, desktop). Teste rigorosamente a responsividade.
+    - **Legibilidade Mobile:** Fontes, espaçamentos e áreas de clique devem ser otimizados para telas menores.
+5. **Hierarquia Visual Clara:**
+    - **Tipografia:** Utilize uma ou duas fontes modernas e legíveis (ex: Inter, Poppins, Lato, Montserrat). Estabeleça uma hierarquia clara de tamanhos e pesos (títulos grandes e impactantes, subtítulos claros, corpo de texto legível).
+    - **Contraste:** Garanta excelente contraste entre texto e fundo para acessibilidade e legibilidade (use ferramentas de verificação de contraste).
