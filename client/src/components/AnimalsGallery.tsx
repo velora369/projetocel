@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, Heart } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import {
@@ -107,24 +108,36 @@ export default function AnimalsGallery({ animals }: AnimalsGalleryProps) {
               </div>
             </div>
             
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex flex-col items-center gap-6">
+              <div className="flex items-center justify-center gap-3">
+                <Button
+                  size="icon"
+                  variant="outline"
+                  className="bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 shadow-lg hover-lift h-10 w-10 sm:h-12 sm:w-12"
+                  onClick={scrollPrev}
+                  data-testid="button-carousel-prev"
+                >
+                  <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                </Button>
+                <Button
+                  size="icon"
+                  variant="outline"
+                  className="bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 shadow-lg hover-lift h-10 w-10 sm:h-12 sm:w-12"
+                  onClick={scrollNext}
+                  data-testid="button-carousel-next"
+                >
+                  <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                </Button>
+              </div>
+              
               <Button
-                size="icon"
-                variant="outline"
-                className="bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 shadow-lg hover-lift h-10 w-10 sm:h-12 sm:w-12"
-                onClick={scrollPrev}
-                data-testid="button-carousel-prev"
+                size="lg"
+                className="gap-2 hover-lift hover-glow transition-all duration-300"
+                onClick={() => window.open("https://wa.me/5511991233124?text=Ol%C3%A1%21%20Vim%20do%20site%20do%20ProjetoCel%20e%20gostaria%20de%20adotar%20um%20animal%21", "_blank")}
+                data-testid="button-adopt-contact"
               >
-                <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-              </Button>
-              <Button
-                size="icon"
-                variant="outline"
-                className="bg-background/90 backdrop-blur-sm border-primary/30 hover:border-primary/50 shadow-lg hover-lift h-10 w-10 sm:h-12 sm:w-12"
-                onClick={scrollNext}
-                data-testid="button-carousel-next"
-              >
-                <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                <Heart className="h-5 w-5" />
+                Quero Adotar
               </Button>
             </div>
           </div>

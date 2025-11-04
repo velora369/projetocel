@@ -123,17 +123,14 @@ export default function SponsorshipSection() {
               <Dialog open={open} onOpenChange={setOpen}>
                 <DialogTrigger asChild>
                   <Card className="group relative p-6 bg-gradient-to-r from-primary/10 to-accent/10 border-primary/30 hover:border-primary/50 transition-all duration-300 hover-lift cursor-pointer">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="p-3 rounded-full bg-primary/20 border border-primary/30">
-                          <Building className="h-6 w-6 text-primary icon-bounce transition-all duration-300 group-hover:scale-110" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold text-foreground text-lg">Doe Aqui</h3>
-                          <p className="text-sm text-muted-foreground">Clique para ver os dados bancários</p>
-                        </div>
+                    <div className="flex items-center gap-3">
+                      <div className="p-3 rounded-full bg-primary/20 border border-primary/30">
+                        <Building className="h-6 w-6 text-primary icon-bounce transition-all duration-300 group-hover:scale-110" />
                       </div>
-                      <Building className="h-6 w-6 text-primary transition-all duration-300 group-hover:scale-110" />
+                      <div>
+                        <h3 className="font-semibold text-foreground text-lg">Doe Aqui</h3>
+                        <p className="text-sm text-muted-foreground">Clique para ver os dados bancários</p>
+                      </div>
                     </div>
                   </Card>
                 </DialogTrigger>
