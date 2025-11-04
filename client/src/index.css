@@ -36,9 +36,9 @@
 
   --sidebar-primary-foreground: 0 0% 100%;
 
-  --sidebar-accent: 210 40% 93%;
+  --sidebar-accent: 215 100% 93%;
 
-  --sidebar-accent-foreground: 210 6% 15%;
+  --sidebar-accent-foreground: 207 80% 25%;
 
   --sidebar-ring: 207 98% 40%;
 
@@ -46,35 +46,35 @@
 
   --popover-foreground: 210 6% 12%;
 
-  --popover-border: 210 15% 88%;
+  --popover-border: 215 50% 90%;
 
   --primary: 207 98% 40%;
 
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 210 100% 93%;
+  --secondary: 215 100% 93%;
 
-  --secondary-foreground: 210 6% 15%;
+  --secondary-foreground: 207 80% 25%;
 
-  --muted: 210 40% 94%;
+  --muted: 215 60% 95%;
 
-  --muted-foreground: 210 6% 40%;
+  --muted-foreground: 207 20% 45%;
 
-  --accent: 210 100% 93%;
+  --accent: 199 100% 50%;
 
-  --accent-foreground: 210 6% 15%;
+  --accent-foreground: 210 40% 8%;
 
   --destructive: 0 84% 35%;
 
   --destructive-foreground: 0 5% 98%;
 
-  --input: 210 10% 75%;
+  --input: 215 40% 85%;
   --ring: 207 98% 40%;
-  --chart-1: 207 98% 35%;
-  --chart-2: 203 95% 45%;
-  --chart-3: 199 89% 52%;
-  --chart-4: 195 75% 58%;
-  --chart-5: 191 60% 65%;
+  --chart-1: 207 98% 40%;
+  --chart-2: 199 100% 50%;
+  --chart-3: 215 100% 93%;
+  --chart-4: 205 95% 65%;
+  --chart-5: 195 85% 75%;
 
   --font-sans: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: Georgia, serif;
@@ -150,49 +150,49 @@
 
   --sidebar-border: 210 10% 22%;
 
-  --sidebar-primary: 207 98% 50%;
+  --sidebar-primary: 207 98% 35%;
 
   --sidebar-primary-foreground: 0 0% 100%;
 
-  --sidebar-accent: 210 20% 20%;
+  --sidebar-accent: 207 60% 22%;
 
-  --sidebar-accent-foreground: 210 5% 92%;
+  --sidebar-accent-foreground: 215 80% 85%;
 
-  --sidebar-ring: 207 98% 50%;
+  --sidebar-ring: 207 98% 35%;
 
   --popover: 210 15% 12%;
 
   --popover-foreground: 210 5% 95%;
 
-  --popover-border: 210 10% 24%;
+  --popover-border: 207 30% 25%;
 
-  --primary: 207 98% 50%;
+  --primary: 207 98% 35%;
 
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 210 30% 20%;
+  --secondary: 207 60% 22%;
 
-  --secondary-foreground: 210 5% 92%;
+  --secondary-foreground: 215 80% 85%;
 
-  --muted: 210 20% 22%;
+  --muted: 207 40% 20%;
 
-  --muted-foreground: 210 6% 70%;
+  --muted-foreground: 215 30% 65%;
 
-  --accent: 210 30% 18%;
+  --accent: 199 100% 50%;
 
-  --accent-foreground: 210 5% 92%;
+  --accent-foreground: 210 40% 8%;
 
   --destructive: 0 84% 28%;
 
   --destructive-foreground: 0 5% 98%;
 
-  --input: 210 10% 32%;
-  --ring: 207 98% 40%;
-  --chart-1: 207 98% 75%;
-  --chart-2: 203 95% 70%;
-  --chart-3: 199 89% 65%;
-  --chart-4: 195 75% 60%;
-  --chart-5: 191 60% 55%;
+  --input: 207 30% 28%;
+  --ring: 207 98% 35%;
+  --chart-1: 199 100% 50%;
+  --chart-2: 207 98% 40%;
+  --chart-3: 215 100% 93%;
+  --chart-4: 205 90% 60%;
+  --chart-5: 195 80% 70%;
 
   --shadow-2xs: 0px 2px 0px 0px hsl(210 10% 5% / 0.00);
   --shadow-xs: 0px 2px 0px 0px hsl(210 10% 5% / 0.00);
@@ -470,7 +470,7 @@
   }
 
   .hover-glow:hover {
-    box-shadow: 0 0 20px rgba(2, 102, 201, 0.3);
+    box-shadow: 0 0 20px rgba(2, 178, 255, 0.4);
   }
 
   .hover-scale {
