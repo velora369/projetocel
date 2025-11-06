@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { DollarSign, Users, Heart, Building, Copy, Check, Calendar, Award } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { DollarSign, Users, Heart, Building, Copy, Check, Calendar, Award, Send } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -16,15 +18,18 @@ export default function SponsorshipSection() {
   const [open, setOpen] = useState(false);
   const [copiedPix, setCopiedPix] = useState(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
   const { toast } = useToast();
 
   const goalAmount = 10000;
 
-  const pixKey = "05.842.110/0001-14";
+  const pixKey = "projetocel.animal@uol.com.br";
   const bankDetails = {
-    banco: "Bradesco",
-    agencia: "2800-2",
-    conta: "12000-6",
+    instituicao: "403 - Cora SCFI",
+    agencia: "0001",
+    conta: "2494477-0",
+    nomeEmpresa: "PROJETO CEL CASA , ESPERANCA E LIBERDADE PARA ANIMAIS CARENTES",
     cnpj: "05.842.110/0001-14",
   };
 
@@ -64,6 +69,23 @@ export default function SponsorshipSection() {
         variant: "destructive",
       });
     }
+  };
+
+  const handleSponsorSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!fullName.trim()) {
+      toast({
+        title: "Nome obrigatório",
+        description: "Por favor, preencha seu nome completo.",
+        variant: "destructive",
+      });
+      return;
+    }
+    const message = `Olá! Meu nome é ${fullName} e eu apadrinhei animais do projetocel esse mês!`;
+    const whatsappUrl = `https://wa.me/5511991233124?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+    setFullName("");
+    setEmail("");
   };
 
   return (
@@ -145,7 +167,7 @@ export default function SponsorshipSection() {
                     <div className="space-y-3">
                       <h4 className="font-semibold text-foreground flex items-center gap-2">
                         <Heart className="h-4 w-4 text-primary" />
-                        PIX (CNPJ)
+                        PIX (Email)
                       </h4>
                       <div className="flex items-center gap-2">
                         <div className="flex-1 p-3 bg-muted rounded-md border border-border">
@@ -174,17 +196,17 @@ export default function SponsorshipSection() {
                       <div className="space-y-2">
                         <div className="flex items-center justify-between p-2 rounded-md hover:bg-muted/50 transition-colors">
                           <div>
-                            <p className="text-xs text-muted-foreground">Banco</p>
-                            <p className="text-sm font-medium text-foreground">{bankDetails.banco}</p>
+                            <p className="text-xs text-muted-foreground">Instituição</p>
+                            <p className="text-sm font-medium text-foreground">{bankDetails.instituicao}</p>
                           </div>
                           <Button
                             size="icon"
                             variant="ghost"
                             className="h-8 w-8"
-                            onClick={() => copyToClipboard(bankDetails.banco, "Banco")}
-                            data-testid="button-copy-banco"
+                            onClick={() => copyToClipboard(bankDetails.instituicao, "Instituição")}
+                            data-testid="button-copy-instituicao"
                           >
-                            {copiedField === "Banco" ? (
+                            {copiedField === "Instituição" ? (
                               <Check className="h-3 w-3 text-green-500" />
                             ) : (
                               <Copy className="h-3 w-3" />
@@ -231,6 +253,25 @@ export default function SponsorshipSection() {
                         </div>
                         <div className="flex items-center justify-between p-2 rounded-md hover:bg-muted/50 transition-colors">
                           <div>
+                            <p className="text-xs text-muted-foreground">Nome da Empresa</p>
+                            <p className="text-sm font-medium text-foreground">{bankDetails.nomeEmpresa}</p>
+                          </div>
+                          <Button
+                            size="icon"
+                            variant="ghost"
+                            className="h-8 w-8"
+                            onClick={() => copyToClipboard(bankDetails.nomeEmpresa, "Nome da Empresa")}
+                            data-testid="button-copy-nome-empresa"
+                          >
+                            {copiedField === "Nome da Empresa" ? (
+                              <Check className="h-3 w-3 text-green-500" />
+                            ) : (
+                              <Copy className="h-3 w-3" />
+                            )}
+                          </Button>
+                        </div>
+                        <div className="flex items-center justify-between p-2 rounded-md hover:bg-muted/50 transition-colors">
+                          <div>
                             <p className="text-xs text-muted-foreground">CNPJ</p>
                             <p className="text-sm font-medium text-foreground">{bankDetails.cnpj}</p>
                           </div>
@@ -254,9 +295,62 @@ export default function SponsorshipSection() {
                 </DialogContent>
               </Dialog>
 
+              <Card className="p-6 bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
+                <h3 className="font-semibold text-foreground text-lg mb-2 flex items-center gap-2">
+                  <Heart className="h-5 w-5 text-primary" />
+                  Já Apadrinhei Esse Mês!
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Preencha os dados abaixo e nos avise pelo WhatsApp
+                </p>
+                <form onSubmit={handleSponsorSubmit} className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="fullName">Nome Completo *</Label>
+                    <Input
+                      id="fullName"
+                      type="text"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      placeholder="Seu nome completo"
+                      required
+                      className="bg-background"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email (opcional)</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="seu.email@exemplo.com"
+                      className="bg-background"
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full gap-2 text-base hover-lift hover-glow transition-all duration-300"
+                  >
+                    <Send className="h-5 w-5" />
+                    Eu Apadrinhei!
+                  </Button>
+                </form>
+              </Card>
+
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <span className="w-full border-t border-primary/20" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-card px-2 text-muted-foreground">ou</span>
+                </div>
+              </div>
+
               <Button
                 size="lg"
-                className="w-full gap-2 text-base hover-lift hover-glow transition-all duration-300"
+                variant="outline"
+                className="w-full gap-2 text-base hover-lift transition-all duration-300"
                 onClick={() => window.open("https://wa.me/5511991233124?text=Ol%C3%A1%21%20Vim%20do%20site%20do%20ProjetoCel%20e%20gostaria%20de%20ser%20um%20padrinho%21", "_blank")}
                 data-testid="button-sponsor-contact"
               >
