@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { DollarSign, Users, Heart, Building, Copy, Check, Calendar, Award, Send } from "lucide-react";
+import { DollarSign, Users, Heart, Building, Copy, Check, Calendar, Award, Send, CreditCard } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -34,10 +34,10 @@ export default function SponsorshipSection() {
   };
 
   const stats = [
-    { icon: Users, value: "300", label: "Animais Acolhidos" },
+    { icon: Users, value: "180", label: "Animais Acolhidos" },
     { icon: Calendar, value: "22", label: "Anos de Amor" },
-    { icon: Award, value: "500+", label: "Vidas Salvas" },
-    { icon: DollarSign, value: "R$ 10.000", label: "Custo Mensal" },
+    { icon: Award, value: "10.000+", label: "Vidas Salvas" },
+    { icon: DollarSign, value: "R$ 30.000", label: "Custo Mensal" },
   ];
 
   const benefits = [
@@ -100,7 +100,7 @@ export default function SponsorshipSection() {
             Programa de <span className="gradient-text">Apadrinhamento</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-3 animate-fade-in-up delay-100">
-            Neste momento, 300 animais dependem da nossa ajuda para sobreviver. Cada um deles tem uma história, mas todos compartilham a mesma esperança: encontrar um lar.
+            Neste momento, 180 animais dependem da nossa ajuda para sobreviver. Cada um deles tem uma história, mas todos compartilham a mesma esperança: encontrar um lar.
           </p>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-200">
             O apadrinhamento nos ajuda a manter o abrigo funcionando, garantindo alimentação, cuidados veterinários e um lar seguro para cada animal. <span className="font-semibold text-foreground">Com apenas R$ 50 mensais, você pode fazer parte dessa transformação</span> e ajudar a mudar a história de muitos bichinhos.
@@ -294,6 +294,26 @@ export default function SponsorshipSection() {
                   </div>
                 </DialogContent>
               </Dialog>
+
+              <a
+                href="https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=2c93808491b45c3b0191b4f97266006f"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+                data-testid="link-mercado-pago"
+              >
+                <Card className="group relative p-6 bg-gradient-to-r from-accent/10 to-primary/10 border-accent/30 hover:border-accent/50 transition-all duration-300 hover-lift cursor-pointer">
+                  <div className="flex items-center gap-3">
+                    <div className="p-3 rounded-full bg-accent/20 border border-accent/30">
+                      <CreditCard className="h-6 w-6 text-accent icon-bounce transition-all duration-300 group-hover:scale-110" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground text-lg">DOE diretamente pelo Mercado Pago</h3>
+                      <p className="text-sm text-muted-foreground">Acesse o link, selecione como pagar e pronto!</p>
+                    </div>
+                  </div>
+                </Card>
+              </a>
 
               <Card className="p-6 bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
                 <h3 className="font-semibold text-foreground text-lg mb-2 flex items-center gap-2">

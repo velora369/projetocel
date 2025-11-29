@@ -32,7 +32,7 @@ export default function HeroSection({ backgroundImage }: HeroSectionProps) {
           Desde 2003 resgatando vidas e oferecendo segundas chances
         </p>
         <p className="text-base sm:text-lg text-white/80 mb-8 animate-fade-in-up delay-300">
-          300 animais sob nossos cuidados aguardam por uma família
+          180 animais sob nossos cuidados aguardam por uma família
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-400">

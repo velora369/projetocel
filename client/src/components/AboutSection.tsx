@@ -7,7 +7,7 @@ interface AboutSectionProps {
 
 export default function AboutSection({ images }: AboutSectionProps) {
   const stats = [
-    { icon: Home, value: "300", label: "Animais Sob Cuidado" },
+    { icon: Home, value: "180", label: "Animais Sob Cuidado" },
     { icon: Calendar, value: "22", label: "Anos de História" },
     { icon: Heart, value: "∞", label: "Amor Compartilhado" },
   ];
@@ -50,7 +50,7 @@ export default function AboutSection({ images }: AboutSectionProps) {
               <div className="relative h-full p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-accent/10 hover:border-accent/30 transition-all duration-300 flex items-center">
                 <p className="text-base sm:text-lg text-foreground leading-relaxed">
                   Atualmente, temos sob nossa guarda{" "}
-                  <span className="font-bold text-accent">300 animais</span>, cada um com sua
+                  <span className="font-bold text-accent">180 animais</span>, cada um com sua
                   história única e esperando por um lar cheio de carinho.
                 </p>
               </div>
