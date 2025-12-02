@@ -26,23 +26,23 @@ export default function HeroSection({ backgroundImage }: HeroSectionProps) {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in-up">
-          Dê a Um Animal Adulto a Chance de Ter Um Lar
+          Dê a Um Animal Adulto a <span className="highlight-text">Chance</span> de Ter Um Lar
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto animate-fade-in-up delay-200">
           Desde 2003 resgatando vidas e oferecendo segundas chances
         </p>
         <p className="text-base sm:text-lg text-white/80 mb-8 animate-fade-in-up delay-300">
-          180 animais sob nossos cuidados aguardam por uma família
+          <span className="highlight-text font-semibold">180 animais</span> sob nossos cuidados aguardam por uma família
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-400">
           <Button
             size="lg"
-            className="gap-2 text-base sm:text-lg px-8 py-6 glass-effect hover-lift hover-glow transition-all duration-300"
+            className="gap-2 text-base sm:text-lg px-8 py-6 glass-effect hover-lift highlight-glow transition-all duration-300"
             onClick={() => scrollToSection("adocao")}
             data-testid="button-hero-adopt"
           >
-            <Heart className="h-5 w-5 icon-bounce" />
+            <Heart className="h-5 w-5 icon-bounce highlight-text" />
             Conheça Nossos Animais
           </Button>
           <Button

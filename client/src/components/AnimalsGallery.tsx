@@ -132,7 +132,7 @@ export default function AnimalsGallery({ animals }: AnimalsGalleryProps) {
               
               <Button
                 size="lg"
-                className="gap-2 hover-lift hover-glow transition-all duration-300"
+                className="gap-2 hover-lift highlight-glow transition-all duration-300"
                 onClick={() => window.open("https://wa.me/5511991233124?text=Ol%C3%A1%21%20Vim%20do%20site%20do%20ProjetoCel%20e%20gostaria%20de%20adotar%20um%20animal%21", "_blank")}
                 data-testid="button-adopt-contact"
               >

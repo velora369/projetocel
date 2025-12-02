@@ -7,9 +7,9 @@ interface AboutSectionProps {
 
 export default function AboutSection({ images }: AboutSectionProps) {
   const stats = [
-    { icon: Home, value: "180", label: "Animais Sob Cuidado" },
-    { icon: Calendar, value: "22", label: "Anos de História" },
-    { icon: Heart, value: "∞", label: "Amor Compartilhado" },
+    { icon: Home, value: "180", label: "Animais Sob Cuidado", highlight: true },
+    { icon: Calendar, value: "22", label: "Anos de História", highlight: false },
+    { icon: Heart, value: "∞", label: "Amor Compartilhado", highlight: false },
   ];
 
   return (
@@ -97,11 +97,11 @@ export default function AboutSection({ images }: AboutSectionProps) {
               data-testid={`card-stat-${idx}`}
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-primary rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
-              <Card className="relative p-8 text-center bg-card/80 backdrop-blur-md border-primary/20 hover:border-primary/40 transition-all duration-500 hover-lift">
+              <Card className={`relative p-8 text-center bg-card/80 backdrop-blur-md transition-all duration-500 hover-lift ${stat.highlight ? 'border-[hsl(51,93%,75%)] border-2' : 'border-primary/20 hover:border-primary/40'}`}>
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-3xl" />
-                <stat.icon className="relative h-12 w-12 mx-auto mb-4 text-primary group-hover:scale-110 transition-transform duration-500 icon-bounce" />
+                <stat.icon className={`relative h-12 w-12 mx-auto mb-4 group-hover:scale-110 transition-transform duration-500 icon-bounce ${stat.highlight ? 'highlight-text' : 'text-primary'}`} />
                 <div className="relative text-4xl sm:text-5xl font-bold text-foreground mb-3">
-                  <span className="gradient-text">{stat.value}</span>
+                  <span className={stat.highlight ? 'highlight-text' : 'gradient-text'}>{stat.value}</span>
                 </div>
                 <div className="relative text-sm sm:text-base text-muted-foreground font-medium">
                   {stat.label}

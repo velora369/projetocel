@@ -9,18 +9,21 @@ export default function AdultAdoptionCampaign() {
       title: "Personalidade Formada",
       description:
         "Animais adultos já têm personalidade definida. Você saberá exatamente o temperamento do seu novo companheiro.",
+      highlight: false,
     },
     {
       icon: Sparkles,
       title: "Segunda Chance de Vida",
       description:
         "Animais adultos têm menos chances de adoção. Ao escolher um deles, você está literalmente salvando uma vida e oferecendo a segunda chance que eles merecem.",
+      highlight: true,
     },
     {
       icon: Smile,
       title: "Gratidão Infinita",
       description:
         "Animais adultos parecem entender que foram resgatados e retribuem com amor e lealdade incomparáveis.",
+      highlight: false,
     },
   ];
 
@@ -57,8 +60,8 @@ export default function AdultAdoptionCampaign() {
               data-testid={`card-benefit-${idx}`}
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition duration-500" />
-              <Card className="relative p-6 bg-card/50 backdrop-blur-sm border border-primary/10 hover:border-primary/30 transition-all duration-300 hover-lift flex flex-col w-full h-full">
-                <benefit.icon className="h-12 w-12 text-primary mb-4 icon-bounce transition-all duration-300 group-hover:scale-110" />
+              <Card className={`relative p-6 bg-card/50 backdrop-blur-sm transition-all duration-300 hover-lift flex flex-col w-full h-full ${benefit.highlight ? 'border-2 border-[hsl(51,93%,75%)]' : 'border border-primary/10 hover:border-primary/30'}`}>
+                <benefit.icon className={`h-12 w-12 mb-4 icon-bounce transition-all duration-300 group-hover:scale-110 ${benefit.highlight ? 'highlight-text' : 'text-primary'}`} />
                 <h3 className="text-xl font-semibold text-foreground mb-3">{benefit.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
               </Card>

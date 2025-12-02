@@ -103,7 +103,7 @@ export default function SponsorshipSection() {
             Neste momento, 180 animais dependem da nossa ajuda para sobreviver. Cada um deles tem uma história, mas todos compartilham a mesma esperança: encontrar um lar.
           </p>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-200">
-            O apadrinhamento nos ajuda a manter o abrigo funcionando, garantindo alimentação, cuidados veterinários e um lar seguro para cada animal. <span className="font-semibold text-foreground">Com apenas R$ 50 mensais, você pode fazer parte dessa transformação</span> e ajudar a mudar a história de muitos bichinhos.
+            O apadrinhamento nos ajuda a manter o abrigo funcionando, garantindo alimentação, cuidados veterinários e um lar seguro para cada animal. <span className="font-semibold highlight-text">Com apenas R$ 50 mensais, você pode fazer parte dessa transformação</span> e ajudar a mudar a história de muitos bichinhos.
           </p>
         </div>
 
@@ -133,7 +133,7 @@ export default function SponsorshipSection() {
                 <ul className="grid md:grid-cols-2 gap-2">
                   {benefits.map((benefit, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <Heart className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      <Heart className="h-4 w-4 highlight-text mt-0.5 flex-shrink-0" />
                       <span>{benefit}</span>
                     </li>
                   ))}
