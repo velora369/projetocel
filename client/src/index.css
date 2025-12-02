@@ -76,6 +76,9 @@
   --chart-4: 205 95% 65%;
   --chart-5: 195 85% 75%;
 
+  --highlight: 51 93% 75%;
+  --highlight-foreground: 51 100% 10%;
+
   --font-sans: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
@@ -193,6 +196,9 @@
   --chart-3: 215 100% 93%;
   --chart-4: 205 90% 60%;
   --chart-5: 195 80% 70%;
+
+  --highlight: 51 93% 65%;
+  --highlight-foreground: 51 100% 10%;
 
   --shadow-2xs: 0px 2px 0px 0px hsl(210 10% 5% / 0.00);
   --shadow-xs: 0px 2px 0px 0px hsl(210 10% 5% / 0.00);
@@ -496,6 +502,40 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Highlight text (yellow accent) */
+  .highlight-text {
+    color: hsl(var(--highlight));
+  }
+
+  /* Highlight underline */
+  .highlight-underline {
+    text-decoration: underline;
+    text-decoration-color: hsl(var(--highlight));
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+  }
+
+  /* Highlight dot/bullet */
+  .highlight-dot::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: hsl(var(--highlight));
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  /* Highlight border */
+  .highlight-border {
+    border-color: hsl(var(--highlight));
+  }
+
+  /* Highlight glow effect */
+  .highlight-glow:hover {
+    box-shadow: 0 0 20px hsl(var(--highlight) / 0.4);
   }
 
   /* Glass morphism effect */
