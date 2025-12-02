@@ -34,7 +34,8 @@ Preferred communication style: Simple, everyday language.
 
 **Design System:**
 - Mobile-first responsive approach
-- Custom color palette: #0266C9 (primary blue), #02B2FF (accent blue), #DDEBFF (light blue), #ffffff
+- Custom color palette: #0266C9 (primary blue), #02B2FF (accent blue), #DDEBFF (light blue), #ffee80 (highlight yellow), #ffffff
+- Highlight yellow (#ffee80) used for accent details: important text, icons, card borders
 - Minimalist aesthetic with generous spacing, rounded corners, subtle shadows
 - Typography: Modern sans-serif fonts (Inter, Poppins, DM Sans, Geist Mono)
 - Comprehensive animation system: fade-ins, slide-ups, scale effects, hover states
