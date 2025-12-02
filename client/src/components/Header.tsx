@@ -49,7 +49,7 @@ export default function Header({ logoSrc }: HeaderProps) {
             <img
               src={logoSrc}
               alt="ProjetoCel"
-              className="h-12 md:h-[60px] w-auto transition-all duration-300 hover:scale-105 cursor-pointer"
+              className="h-[72px] md:h-[90px] w-auto transition-all duration-300 hover:scale-105 cursor-pointer"
               onClick={() => scrollToSection("inicio")}
             />
           </div>
