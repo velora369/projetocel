@@ -11,7 +11,7 @@ export default function ContactSection() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background/40" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(2,102,201,0.08),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(2,178,255,0.06),transparent_50%)]" />
       
