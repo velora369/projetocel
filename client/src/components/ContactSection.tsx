@@ -3,9 +3,15 @@ import { Phone, Clock } from "lucide-react";
 import { SiInstagram } from "react-icons/si";
 
 export default function ContactSection() {
+  const backgroundImage = "https://yungwizzeprod2.wordpress.com/wp-content/uploads/2025/12/whatsapp-image-2025-11-30-at-18.34.39.webp";
+
   return (
     <section id="contato" className="relative py-16 md:py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(2,102,201,0.08),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(2,178,255,0.06),transparent_50%)]" />
       
