@@ -9,7 +9,7 @@ import HowItWorksSection from "@/components/HowItWorksSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
-import logoUrl from "@assets/images/logo.webp";
+import logoUrl from "@assets/logo-nova.webp";
 import heroImage from "@assets/images/hero-new.webp";
 import foto2 from "@assets/images/foto2.webp";
 import foto4 from "@assets/images/foto4.webp";
